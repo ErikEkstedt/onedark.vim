@@ -142,6 +142,13 @@ let s:purple = s:colors.purple
 let s:cyan = s:colors.cyan
 let s:white = s:colors.white
 let s:black = s:colors.black
+
+let s:purple_bright = s:colors.purple_bright 
+let s:pink_bright = s:colors.pink_bright
+let s:pink_dim = s:colors.pink_dim
+let s:cyan_bright = s:colors.cyan_bright
+
+
 let s:visual_black = s:colors.visual_black " Black out selected text in 16-color visual mode
 let s:comment_grey = s:colors.comment_grey
 let s:gutter_fg_grey = s:colors.gutter_fg_grey
@@ -168,7 +175,8 @@ let g:terminal_ansi_colors = [
 
 call s:h("Comment", { "fg": s:comment_grey, "gui": "italic", "cterm": "italic" }) " any comment
 call s:h("Constant", { "fg": s:cyan }) " any constant
-call s:h("String", { "fg": s:green }) " a string constant: "this is a string"
+" call s:h("String", { "fg": s:green }) " a string constant: "this is a string"
+call s:h("String", { "fg": s:green, "gui": "italic", "cterm": "italic" }) " any comment
 call s:h("Character", { "fg": s:green }) " a character constant: 'c', '\n'
 call s:h("Number", { "fg": s:dark_yellow }) " a number constant: 234, 0xff
 call s:h("Boolean", { "fg": s:dark_yellow }) " a boolean constant: TRUE, false
@@ -205,8 +213,11 @@ call s:h("Todo", { "fg": s:purple }) " anything that needs extra attention; most
 " }}}
 
 " Highlighting Groups (descriptions and ordering from `:h highlight-groups`) {{{
-call s:h("ColorColumn", { "bg": s:cursor_grey }) " used for the columns set with 'colorcolumn'
+" call s:h("ColorColumn", { "bg": s:cursor_grey }) " used for the columns set with 'colorcolumn'
+hi ColorColumn guibg=#24282e
 call s:h("Conceal", {}) " placeholder characters substituted for concealed text (see 'conceallevel')
+hi Conceal guibg=#282c34 guifg=#404040 
+
 call s:h("Cursor", { "fg": s:black, "bg": s:blue }) " the character under the cursor
 call s:h("CursorIM", {}) " like Cursor, but used when in IME mode
 call s:h("CursorColumn", { "bg": s:cursor_grey }) " the screen column that the cursor is in when 'cursorcolumn' is set
@@ -223,21 +234,37 @@ call s:h("DiffDelete", { "bg": s:red, "fg": s:black }) " diff mode: Deleted line
 call s:h("DiffText", { "bg": s:yellow, "fg": s:black }) " diff mode: Changed text within a changed line
 call s:h("ErrorMsg", { "fg": s:red }) " error messages on the command line
 call s:h("VertSplit", { "fg": s:vertsplit }) " the column separating vertically split windows
-call s:h("Folded", { "fg": s:comment_grey }) " line used for closed folds
-call s:h("FoldColumn", {}) " 'foldcolumn'
-call s:h("SignColumn", {}) " column where signs are displayed
+
+" call s:h("Folded", { "fg": s:comment_grey }) " line used for closed folds
+" call s:h("FoldColumn", {}) " 'foldcolumn'
+hi FoldColumn guibg=g:background_color
+hi Folded guibg=g:background_color guifg=#148791
+" call s:h("SignColumn", {}) " column where signs are displayed
+hi SignColumn guibg=g:background_color
 call s:h("IncSearch", { "fg": s:yellow, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
-call s:h("LineNr", { "fg": s:gutter_fg_grey }) " Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+" call s:h("LineNr", { "fg": s:gutter_fg_grey }) " Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+hi LineNr guibg=g:background_color guifg=#5C6370
+
 call s:h("CursorLineNr", {}) " Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 call s:h("MatchParen", { "fg": s:blue, "gui": "underline" }) " The character under the cursor or just before it, if it is a paired bracket, and its match.
 call s:h("ModeMsg", {}) " 'showmode' message (e.g., "-- INSERT --")
 call s:h("MoreMsg", {}) " more-prompt
 call s:h("NonText", { "fg": s:special_grey }) " '~' and '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).
 call s:h("Normal", { "fg": s:white, "bg": s:black }) " normal text
-call s:h("Pmenu", { "bg": s:menu_grey }) " Popup menu: normal item.
-call s:h("PmenuSel", { "fg": s:black, "bg": s:blue }) " Popup menu: selected item.
-call s:h("PmenuSbar", { "bg": s:special_grey }) " Popup menu: scrollbar.
-call s:h("PmenuThumb", { "bg": s:white }) " Popup menu: Thumb of the scrollbar.
+
+" PopUpMenu 
+" call s:h("Pmenu", { "bg": s:menu_grey }) " Popup menu: normal item.
+" call s:h("PmenuSel", { "fg": s:black, "bg": s:blue }) " Popup menu: selected item.
+" call s:h("PmenuSbar", { "bg": s:special_grey }) " Popup menu: scrollbar.
+" call s:h("PmenuThumb", { "bg": s:white }) " Popup menu: Thumb of the scrollbar.
+
+" Selection menu colors
+hi Pmenu guibg=#24282e guifg=#00fbff
+hi PmenuSel guibg=#272a30 gui=NONE guifg=#ff00f3
+hi PmenuSbar guibg=#000000
+hi PmenuThumb guibg=#FF00DE
+
+
 call s:h("Question", { "fg": s:purple }) " hit-enter prompt and yes/no questions
 call s:h("QuickFixLine", { "fg": s:black, "bg": s:yellow }) " Current quickfix item in the quickfix window.
 call s:h("Search", { "fg": s:black, "bg": s:yellow }) " Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
@@ -246,8 +273,14 @@ call s:h("SpellBad", { "fg": s:red, "gui": "underline", "cterm": "underline" }) 
 call s:h("SpellCap", { "fg": s:dark_yellow }) " Word that should start with a capital. This will be combined with the highlighting used otherwise.
 call s:h("SpellLocal", { "fg": s:dark_yellow }) " Word that is recognized by the spellchecker as one that is used in another region. This will be combined with the highlighting used otherwise.
 call s:h("SpellRare", { "fg": s:dark_yellow }) " Word that is recognized by the spellchecker as one that is hardly ever used. spell This will be combined with the highlighting used otherwise.
+
 call s:h("StatusLine", { "fg": s:white, "bg": s:cursor_grey }) " status line of current window
 call s:h("StatusLineNC", { "fg": s:comment_grey }) " status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+
+hi StatusLine guifg=#00deff gui=bold
+hi StatusLineNC guifg=#00a2ba gui=bold
+" exe 'hi! StatusLineNC guibg=' . g:status_background_color . ' guifg=#00a2ba'
+
 call s:h("TabLine", { "fg": s:comment_grey }) " tab pages line, not active tab page label
 call s:h("TabLineFill", {}) " tab pages line, where there are no labels
 call s:h("TabLineSel", { "fg": s:white }) " tab pages line, active tab page label
@@ -262,6 +295,41 @@ call s:h("WildMenu", { "fg": s:black, "bg": s:blue }) " current match in 'wildme
 
 " Language-Specific Highlighting {{{
 
+" VIM
+hi vimAugroup guifg=#4c03d4
+hi vimAugroupKey guifg=#4c03d4
+hi vimIsCommand guifg=#00bbff
+hi vimCommand guifg=#e400ff
+hi vimFunction guifg=#f043b5
+hi vimLineComment guifg=#5b6378
+hi vimVar guifg=#ff00d5
+hi vimHiGroup guifg=#56f482
+hi vimHighlight guifg=#a000ff
+hi vimLet guifg=#a000ff
+hi vimHiKeyList guifg=#9500df
+hi vimHiGuiFgBg guifg=#ff00b8
+
+" ZSH
+hi zshKeyword guifg=#6338e3
+hi zshCommands guifg=#ff008d
+hi zshFunction guifg=#ff00f6
+hi zshVariableDef guifg=#00ff8c
+hi zshBrackets guifg=#ff8000
+hi zshTypes guifg=#ff8000
+
+" Dosini
+hi DosiniHeader guifg=#FF00DE
+hi DosiniLabel guifg=#56f482
+hi DosiniString guifg=#ffff00
+
+" Tmux
+hi TmuxCommands guifg=#ff008d
+hi tmuxOptions guifg=#ff00f6
+hi tmuxFlags guifg=#00ff8c
+hi tmuxKey guifg=#00ceff
+hi tmuxString guifg=#72c089
+hi tmuxVariable guifg=#00ff8c
+hi tmuxFormatString guifg=#dba76f
 " CSS
 call s:h("cssAttrComma", { "fg": s:purple })
 call s:h("cssAttributeSelector", { "fg": s:green })
@@ -490,10 +558,22 @@ call s:h("xmlTagName", { "fg": s:red })
 
 " Plugin Highlighting {{{
 
-" airblade/vim-gitgutter
-hi link GitGutterAdd    SignifySignAdd
-hi link GitGutterChange SignifySignChange
-hi link GitGutterDelete SignifySignDelete
+" Nerdtree
+hi Directory guifg=#414a59
+hi NERDTreeCWD guifg=#55b5be
+hi NERDTreeDir guifg=#5cade5
+hi NERDTreeDirSlash guifg=#55b5be
+hi NERDTreeFlags guifg=#55b5be
+hi NERDTreeGitStatusDirDirty guifg=#c678dd
+hi NERDTreeFile guifg=white
+hi NERDTreeBookmarksHeader guifg=#c678dd
+hi NERDTreeBookmarkName guifg=#abb2bf
+
+" GitGutter
+hi GitGutterDelete guibg=#282c34 guifg=#AA0000
+hi GitGutterChangeDelete guibg=#282c34
+hi GitGutterAdd guibg=#282c34 guifg=#00ff52
+hi GitGutterChange guibg=#282c34 guifg=#ff8200
 
 " easymotion/vim-easymotion
 call s:h("EasyMotionTarget", { "fg": s:red, "gui": "bold", "cterm": "bold" })

@@ -234,16 +234,16 @@ call s:h("DiffDelete", { "bg": s:red, "fg": s:black }) " diff mode: Deleted line
 call s:h("DiffText", { "bg": s:yellow, "fg": s:black }) " diff mode: Changed text within a changed line
 call s:h("ErrorMsg", { "fg": s:red }) " error messages on the command line
 call s:h("VertSplit", { "fg": s:vertsplit }) " the column separating vertically split windows
+call s:h("IncSearch", { "fg": s:yellow, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
 
 " call s:h("Folded", { "fg": s:comment_grey }) " line used for closed folds
 " call s:h("FoldColumn", {}) " 'foldcolumn'
-hi FoldColumn guibg=g:background_color
-hi Folded guibg=g:background_color guifg=#148791
+hi FoldColumn guibg=#282C34
+hi Folded guibg=#282C34 guifg=#148791
 " call s:h("SignColumn", {}) " column where signs are displayed
-hi SignColumn guibg=g:background_color
-call s:h("IncSearch", { "fg": s:yellow, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
+hi SignColumn guibg=#282C34
 " call s:h("LineNr", { "fg": s:gutter_fg_grey }) " Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-hi LineNr guibg=g:background_color guifg=#5C6370
+hi LineNr guibg=#282C34 guifg=#5C6370
 
 call s:h("CursorLineNr", {}) " Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 call s:h("MatchParen", { "fg": s:blue, "gui": "underline" }) " The character under the cursor or just before it, if it is a paired bracket, and its match.
@@ -263,7 +263,6 @@ hi Pmenu guibg=#24282e guifg=#00fbff
 hi PmenuSel guibg=#272a30 gui=NONE guifg=#ff00f3
 hi PmenuSbar guibg=#000000
 hi PmenuThumb guibg=#FF00DE
-
 
 call s:h("Question", { "fg": s:purple }) " hit-enter prompt and yes/no questions
 call s:h("QuickFixLine", { "fg": s:black, "bg": s:yellow }) " Current quickfix item in the quickfix window.

@@ -580,24 +580,24 @@ hi NERDTreeGitStatusDirDirty guifg=#c678dd
 hi NERDTreeFile guifg=white
 hi NERDTreeBookmarksHeader guifg=#c678dd
 hi NERDTreeBookmarkName guifg=#abb2bf
-}}}
+"}}}
 " GitGutter {{{
 hi GitGutterDelete guibg=#282c34 guifg=#AA0000
 hi GitGutterChangeDelete guibg=#282c34
 hi GitGutterAdd guibg=#282c34 guifg=#00ff52
 hi GitGutterChange guibg=#282c34 guifg=#ff8200
-}}}
+"}}}
 " easymotion/vim-easymotion {{{
 call s:h("EasyMotionTarget", { "fg": s:red, "gui": "bold", "cterm": "bold" })
 call s:h("EasyMotionTarget2First", { "fg": s:yellow, "gui": "bold", "cterm": "bold" })
 call s:h("EasyMotionTarget2Second", { "fg": s:dark_yellow, "gui": "bold", "cterm": "bold" })
 call s:h("EasyMotionShade",  { "fg": s:comment_grey })
-}}}
+"}}}
 " mhinz/vim-signify {{{
 call s:h("SignifySignAdd", { "fg": s:green })
 call s:h("SignifySignChange", { "fg": s:yellow })
 call s:h("SignifySignDelete", { "fg": s:red })
-}}}
+"}}}
 " neomake/neomake {{{
 call s:h("NeomakeWarningSign", { "fg": s:yellow })
 call s:h("NeomakeErrorSign", { "fg": s:red })

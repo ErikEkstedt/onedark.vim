@@ -273,18 +273,24 @@ call s:h("SpellCap", { "fg": s:dark_yellow }) " Word that should start with a ca
 call s:h("SpellLocal", { "fg": s:dark_yellow }) " Word that is recognized by the spellchecker as one that is used in another region. This will be combined with the highlighting used otherwise.
 call s:h("SpellRare", { "fg": s:dark_yellow }) " Word that is recognized by the spellchecker as one that is hardly ever used. spell This will be combined with the highlighting used otherwise.
 
-call s:h("StatusLine", { "fg": s:white, "bg": s:cursor_grey }) " status line of current window
-call s:h("StatusLineNC", { "fg": s:comment_grey }) " status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+" call s:h("StatusLine", { "fg": s:white, "bg": s:cursor_grey }) " status line of current window
+" call s:h("StatusLineNC", { "fg": s:comment_grey }) " status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 
-hi StatusLine guifg=#00deff gui=bold
-hi StatusLineNC guifg=#00a2ba gui=bold
+hi StatusLine guibg=#010101 guifg=#00deff gui=bold
+hi StatusLineNC guibg=#010101 guifg=#00a2ba gui=bold
 " exe 'hi! StatusLineNC guibg=' . g:status_background_color . ' guifg=#00a2ba'
 
-call s:h("TabLine", { "fg": s:comment_grey }) " tab pages line, not active tab page label
-call s:h("TabLineFill", {}) " tab pages line, where there are no labels
-call s:h("TabLineSel", { "fg": s:white }) " tab pages line, active tab page label
+" call s:h("TabLine", { "fg": s:comment_grey }) " tab pages line, not active tab page label
+" call s:h("TabLineFill", {}) " tab pages line, where there are no labels
+" call s:h("TabLineSel", { "fg": s:white }) " tab pages line, active tab page label
+
+hi TabLine guibg=#1e2126 guifg=#0fc5cf
+hi TabLineSel guifg=#00f2ff
+hi TabLineFill guibg=#1e2126
+hi Title guibg=#282C34 guifg=#1fbe3e
+
 call s:h("Terminal", { "fg": s:white, "bg": s:black }) " terminal window (see terminal-size-color)
-call s:h("Title", { "fg": s:green }) " titles for output from ":set all", ":autocmd" etc.
+" call s:h("Title", { "fg": s:green }) " titles for output from ":set all", ":autocmd" etc.
 call s:h("Visual", { "fg": s:visual_black, "bg": s:visual_grey }) " Visual mode selection
 call s:h("VisualNOS", { "bg": s:visual_grey }) " Visual mode selection when vim is "Not Owning the Selection". Only X11 Gui's gui-x11 and xterm-clipboard supports this.
 call s:h("WarningMsg", { "fg": s:yellow }) " warning messages

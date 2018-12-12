@@ -612,6 +612,10 @@ call s:h("NeomakeInfoSign", { "fg": s:blue })
 " tpope/vim-fugitive {{{
 call s:h("diffAdded", { "fg": s:green })
 call s:h("diffRemoved", { "fg": s:red })
+"
+" ALE {{{
+highlight ALEWarningSign guibg=None guifg=#ff9f00
+highlight ALEErrorSign guibg=None guifg=#a50000
 " }}}
 " }}}
 

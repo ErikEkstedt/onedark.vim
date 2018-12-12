@@ -294,7 +294,7 @@ call s:h("WildMenu", { "fg": s:black, "bg": s:blue }) " current match in 'wildme
 
 " Language-Specific Highlighting {{{
 
-" VIM
+" VIM {{{
 hi vimAugroup guifg=#4c03d4
 hi vimAugroupKey guifg=#4c03d4
 hi vimIsCommand guifg=#00bbff
@@ -307,21 +307,21 @@ hi vimHighlight guifg=#a000ff
 hi vimLet guifg=#a000ff
 hi vimHiKeyList guifg=#9500df
 hi vimHiGuiFgBg guifg=#ff00b8
-
-" ZSH
+" "}}}
+" ZSH {{{
 hi zshKeyword guifg=#6338e3
 hi zshCommands guifg=#ff008d
 hi zshFunction guifg=#ff00f6
 hi zshVariableDef guifg=#00ff8c
 hi zshBrackets guifg=#ff8000
 hi zshTypes guifg=#ff8000
-
-" Dosini
+" }}}
+" Dosini{{{
 hi DosiniHeader guifg=#FF00DE
 hi DosiniLabel guifg=#56f482
 hi DosiniString guifg=#ffff00
-
-" Tmux
+" }}}
+" Tmux {{{
 hi TmuxCommands guifg=#ff008d
 hi tmuxOptions guifg=#ff00f6
 hi tmuxFlags guifg=#00ff8c
@@ -329,7 +329,8 @@ hi tmuxKey guifg=#00ceff
 hi tmuxString guifg=#72c089
 hi tmuxVariable guifg=#00ff8c
 hi tmuxFormatString guifg=#dba76f
-" CSS
+" }}}
+" CSS {{{
 call s:h("cssAttrComma", { "fg": s:purple })
 call s:h("cssAttributeSelector", { "fg": s:green })
 call s:h("cssBraces", { "fg": s:white })
@@ -349,11 +350,11 @@ call s:h("cssPseudoClassId", { "fg": s:dark_yellow })
 call s:h("cssSelectorOp", { "fg": s:purple })
 call s:h("cssSelectorOp2", { "fg": s:purple })
 call s:h("cssTagName", { "fg": s:red })
-
-" Go
+" }}}
+" Go {{{
 call s:h("goDeclaration", { "fg": s:purple })
-
-" HTML
+" }}}
+" HTML {{{
 call s:h("htmlTitle", { "fg": s:white })
 call s:h("htmlArg", { "fg": s:dark_yellow })
 call s:h("htmlEndTag", { "fg": s:white })
@@ -363,8 +364,8 @@ call s:h("htmlSpecialChar", { "fg": s:dark_yellow })
 call s:h("htmlSpecialTagName", { "fg": s:red })
 call s:h("htmlTag", { "fg": s:white })
 call s:h("htmlTagName", { "fg": s:red })
-
-" JavaScript
+" }}}
+" JavaScript {{{
 call s:h("javaScriptBraces", { "fg": s:white })
 call s:h("javaScriptFunction", { "fg": s:purple })
 call s:h("javaScriptIdentifier", { "fg": s:purple })
@@ -419,7 +420,7 @@ call s:h("javascriptPropertyName", { "fg": s:green })
 call s:h("javascriptTemplateSB", { "fg": s:dark_red })
 call s:h("javascriptVariable", { "fg": s:purple })
 
-" JSON
+" JSON{{{
 call s:h("jsonCommentError", { "fg": s:white })
 call s:h("jsonKeyword", { "fg": s:red })
 call s:h("jsonBoolean", { "fg": s:dark_yellow })
@@ -431,38 +432,50 @@ call s:h("jsonNumError", { "fg": s:red, "gui": "reverse" })
 call s:h("jsonString", { "fg": s:green })
 call s:h("jsonStringSQError", { "fg": s:red, "gui": "reverse" })
 call s:h("jsonSemicolonError", { "fg": s:red, "gui": "reverse" })
-
+" }}}
 " LESS
 call s:h("lessVariable", { "fg": s:purple })
 call s:h("lessAmpersandChar", { "fg": s:white })
 call s:h("lessClass", { "fg": s:dark_yellow })
-
-" Markdown
+" }}}
+" Markdown {{{
 call s:h("markdownCode", { "fg": s:green })
 call s:h("markdownCodeBlock", { "fg": s:green })
 call s:h("markdownCodeDelimiter", { "fg": s:green })
-call s:h("markdownHeadingDelimiter", { "fg": s:red })
+" call s:h("markdownHeadingDelimiter", { "fg": s:red })
 call s:h("markdownRule", { "fg": s:comment_grey })
 call s:h("markdownHeadingRule", { "fg": s:comment_grey })
-call s:h("markdownH1", { "fg": s:red })
-call s:h("markdownH2", { "fg": s:red })
-call s:h("markdownH3", { "fg": s:red })
-call s:h("markdownH4", { "fg": s:red })
-call s:h("markdownH5", { "fg": s:red })
-call s:h("markdownH6", { "fg": s:red })
+" call s:h("markdownH1", { "fg": s:red })
+" call s:h("markdownH2", { "fg": s:red })
+" call s:h("markdownH3", { "fg": s:red })
+" call s:h("markdownH4", { "fg": s:red })
+" call s:h("markdownH5", { "fg": s:red })
+" call s:h("markdownH6", { "fg": s:red })
+
+hi markdownH1 guifg=#ef00d5
+hi markdownH2 guifg=#c806b2
+hi markdownH3 guifg=#a70a96
+hi markdownH4 guifg=#8c0d7e
+hi markdownH5 guifg=#760f6a
+hi markdownH6 guifg=#63105a
+hi markdownHeadingDelimiter guifg=#ef00d5
+hi markdownListMarker guifg=#a000ff
+hi markdownOrderedListMarker guifg=#00ffa7
+
 call s:h("markdownIdDelimiter", { "fg": s:purple })
 call s:h("markdownId", { "fg": s:purple })
 call s:h("markdownBlockquote", { "fg": s:comment_grey })
 call s:h("markdownItalic", { "fg": s:purple, "gui": "italic", "cterm": "italic" })
 call s:h("markdownBold", { "fg": s:dark_yellow, "gui": "bold", "cterm": "bold" })
-call s:h("markdownListMarker", { "fg": s:red })
-call s:h("markdownOrderedListMarker", { "fg": s:red })
+" call s:h("markdownListMarker", { "fg": s:red })
+" call s:h("markdownOrderedListMarker", { "fg": s:red })
 call s:h("markdownIdDeclaration", { "fg": s:blue })
 call s:h("markdownLinkText", { "fg": s:blue })
 call s:h("markdownLinkDelimiter", { "fg": s:white })
 call s:h("markdownUrl", { "fg": s:purple })
 
-" Perl
+" }}}
+" Perl {{{
 call s:h("perlFiledescRead", { "fg": s:green })
 call s:h("perlFunction", { "fg": s:purple })
 call s:h("perlMatchStartEnd",{ "fg": s:blue })
@@ -477,8 +490,8 @@ call s:h("perlStatementScalar",{ "fg": s:purple })
 call s:h("perlStatementStorage", { "fg": s:purple })
 call s:h("perlSubName",{ "fg": s:yellow })
 call s:h("perlVarPlain",{ "fg": s:blue })
-
-" PHP
+" }}}
+" PHP {{{
 call s:h("phpVarSelector", { "fg": s:red })
 call s:h("phpOperator", { "fg": s:white })
 call s:h("phpParent", { "fg": s:white })
@@ -497,8 +510,8 @@ call s:h("phpMethodsVar", { "fg": s:dark_yellow })
 call s:h("phpMagicConstants", { "fg": s:dark_yellow })
 call s:h("phpSuperglobals", { "fg": s:red })
 call s:h("phpConstants", { "fg": s:dark_yellow })
-
-" Ruby
+" }}}
+" Ruby {{{
 call s:h("rubyBlockParameter", { "fg": s:red})
 call s:h("rubyBlockParameterList", { "fg": s:red })
 call s:h("rubyClass", { "fg": s:purple})
@@ -517,8 +530,8 @@ call s:h("rubyRegexp", { "fg": s:cyan})
 call s:h("rubyRegexpDelimiter", { "fg": s:cyan})
 call s:h("rubyStringDelimiter", { "fg": s:green})
 call s:h("rubySymbol", { "fg": s:cyan})
-
-" Sass
+" }}}
+" Sass{{{
 " https://github.com/tpope/vim-haml
 call s:h("sassAmpersand", { "fg": s:red })
 call s:h("sassClass", { "fg": s:dark_yellow })
@@ -541,23 +554,23 @@ call s:h("scssInclude", { "fg": s:purple })
 call s:h("scssMixin", { "fg": s:purple })
 call s:h("scssSelectorName", { "fg": s:dark_yellow })
 call s:h("scssVariable", { "fg": s:purple })
-
-" TypeScript
+" }}}
+" TypeScript{{{
 call s:h("typescriptReserved", { "fg": s:purple })
 call s:h("typescriptEndColons", { "fg": s:white })
 call s:h("typescriptBraces", { "fg": s:white })
-
-" XML
+" }}}
+" XML {{{
 call s:h("xmlAttrib", { "fg": s:dark_yellow })
 call s:h("xmlEndTag", { "fg": s:red })
 call s:h("xmlTag", { "fg": s:red })
 call s:h("xmlTagName", { "fg": s:red })
-
+" }}}
 " }}}
 
 " Plugin Highlighting {{{
 
-" Nerdtree
+" Nerdtree {{{
 hi Directory guifg=#414a59
 hi NERDTreeCWD guifg=#55b5be
 hi NERDTreeDir guifg=#5cade5
@@ -567,33 +580,33 @@ hi NERDTreeGitStatusDirDirty guifg=#c678dd
 hi NERDTreeFile guifg=white
 hi NERDTreeBookmarksHeader guifg=#c678dd
 hi NERDTreeBookmarkName guifg=#abb2bf
-
-" GitGutter
+}}}
+" GitGutter {{{
 hi GitGutterDelete guibg=#282c34 guifg=#AA0000
 hi GitGutterChangeDelete guibg=#282c34
 hi GitGutterAdd guibg=#282c34 guifg=#00ff52
 hi GitGutterChange guibg=#282c34 guifg=#ff8200
-
-" easymotion/vim-easymotion
+}}}
+" easymotion/vim-easymotion {{{
 call s:h("EasyMotionTarget", { "fg": s:red, "gui": "bold", "cterm": "bold" })
 call s:h("EasyMotionTarget2First", { "fg": s:yellow, "gui": "bold", "cterm": "bold" })
 call s:h("EasyMotionTarget2Second", { "fg": s:dark_yellow, "gui": "bold", "cterm": "bold" })
 call s:h("EasyMotionShade",  { "fg": s:comment_grey })
-
-" mhinz/vim-signify
+}}}
+" mhinz/vim-signify {{{
 call s:h("SignifySignAdd", { "fg": s:green })
 call s:h("SignifySignChange", { "fg": s:yellow })
 call s:h("SignifySignDelete", { "fg": s:red })
-
-" neomake/neomake
+}}}
+" neomake/neomake {{{
 call s:h("NeomakeWarningSign", { "fg": s:yellow })
 call s:h("NeomakeErrorSign", { "fg": s:red })
 call s:h("NeomakeInfoSign", { "fg": s:blue })
-
-" tpope/vim-fugitive
+" }}}
+" tpope/vim-fugitive {{{
 call s:h("diffAdded", { "fg": s:green })
 call s:h("diffRemoved", { "fg": s:red })
-
+" }}}
 " }}}
 
 " Git Highlighting {{{

@@ -52,6 +52,7 @@ endif
 set t_Co=256
 
 let g:colors_name="onedark"
+let s:bg_color='#141619'
 
 " Set to "256" for 256-color terminals, or
 " set to "16" to use your terminal emulator's native colors
@@ -210,24 +211,24 @@ call s:h("Todo", { "fg": s:purple }) " anything that needs extra attention; most
 " }}}
 
 " UGLY CUSTOM CODING
-let l:bg_color='#141619'
+
 " Highlighting Groups (descriptions and ordering from `:h highlight-groups`) {{{
 " call s:h("ColorColumn", { "bg": s:cursor_grey }) " used for the columns set with 'colorcolumn'
 call s:h("Conceal", {}) " placeholder characters substituted for concealed text (see 'conceallevel')
 
-exe 'hi! StatusLine guibg=' . l:bg_color
-exe 'hi! ColorColumn guibg=' . l:bg_color 
-exe 'hi! Conceal guibg=' . l:bg_color . 'guifg=#404040' 
-exe 'hi! FoldColumn guibg=' . l:bg_color
-exe 'hi! Folded guibg=' . l:bg_color . 'guifg=#148791'
-exe 'hi! SignColumn guibg=' . l:bg_color
-exe 'hi! LineNr guibg=' . l:bg_color . 'guifg=#5C6370'
+exe 'hi! StatusLine guibg=' . s:bg_color
+exe 'hi! ColorColumn guibg=' . s:bg_color 
+exe 'hi! Conceal guibg=' . s:bg_color . 'guifg=#404040' 
+exe 'hi! FoldColumn guibg=' . s:bg_color
+exe 'hi! Folded guibg=' . s:bg_color . 'guifg=#148791'
+exe 'hi! SignColumn guibg=' . s:bg_color
+exe 'hi! LineNr guibg=' . s:bg_color . 'guifg=#5C6370'
 
 " GitGutter {{{
-exe 'hi! GitGutterDelete guibg=' . l:bg_color . 'guifg=#AA0000'
-exe 'hi! GitGutterChangeDelete guibg=' . l:bg_color
-exe 'hi! GitGutterAdd guibg=' . l:bg_color . 'guifg=#00ff52'
-exe 'hi! GitGutterChange guibg=' . l:bg_color . 'guifg=#ff8200'
+exe 'hi! GitGutterDelete guibg=' . s:bg_color . 'guifg=#AA0000'
+exe 'hi! GitGutterChangeDelete guibg=' . s:bg_color
+exe 'hi! GitGutterAdd guibg=' . s:bg_color . 'guifg=#00ff52'
+exe 'hi! GitGutterChange guibg=' . s:bg_color . 'guifg=#ff8200'
 "}}}
 
 

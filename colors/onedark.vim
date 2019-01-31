@@ -132,31 +132,28 @@ endfunction
 
 let s:colors = onedark#GetColors()
 
-let s:red = s:colors.red
-let s:dark_red = s:colors.dark_red
-let s:green = s:colors.green
-let s:yellow = s:colors.yellow
-let s:dark_yellow = s:colors.dark_yellow
-let s:blue = s:colors.blue
-let s:purple = s:colors.purple
-let s:cyan = s:colors.cyan
-let s:white = s:colors.white
 let s:black = s:colors.black
-
-let s:purple_bright = s:colors.purple_bright 
+let s:blue = s:colors.blue
+let s:comment_grey = s:colors.comment_grey
+let s:cursor_grey = s:colors.cursor_grey
+let s:cyan = s:colors.cyan
+let s:cyan_bright = s:colors.cyan_bright
+let s:dark_red = s:colors.dark_red
+let s:dark_yellow = s:colors.dark_yellow
+let s:green = s:colors.green
+let s:gutter_fg_grey = s:colors.gutter_fg_grey
+let s:menu_grey = s:colors.menu_grey
 let s:pink_bright = s:colors.pink_bright
 let s:pink_dim = s:colors.pink_dim
-let s:cyan_bright = s:colors.cyan_bright
-
-
-let s:visual_black = s:colors.visual_black " Black out selected text in 16-color visual mode
-let s:comment_grey = s:colors.comment_grey
-let s:gutter_fg_grey = s:colors.gutter_fg_grey
-let s:cursor_grey = s:colors.cursor_grey
-let s:visual_grey = s:colors.visual_grey
-let s:menu_grey = s:colors.menu_grey
+let s:purple = s:colors.purple
+let s:purple_bright = s:colors.purple_bright 
+let s:red = s:colors.red
 let s:special_grey = s:colors.special_grey
 let s:vertsplit = s:colors.vertsplit
+let s:visual_black = s:colors.visual_black " Black out selected text in 16-color visual mode
+let s:visual_grey = s:colors.visual_grey
+let s:white = s:colors.white
+let s:yellow = s:colors.yellow
 
 " }}}
 
@@ -212,11 +209,27 @@ call s:h("Todo", { "fg": s:purple }) " anything that needs extra attention; most
 
 " }}}
 
+" UGLY CUSTOM CODING
+let l:bg_color='#141619'
 " Highlighting Groups (descriptions and ordering from `:h highlight-groups`) {{{
 " call s:h("ColorColumn", { "bg": s:cursor_grey }) " used for the columns set with 'colorcolumn'
-hi ColorColumn guibg=#24282e
 call s:h("Conceal", {}) " placeholder characters substituted for concealed text (see 'conceallevel')
-hi Conceal guibg=#282c34 guifg=#404040 
+
+exe 'hi! StatusLine guibg=' . l:bg_color
+exe 'hi! ColorColumn guibg=' . l:bg_color 
+exe 'hi! Conceal guibg=' . l:bg_color . 'guifg=#404040' 
+exe 'hi! FoldColumn guibg=' . l:bg_color
+exe 'hi! Folded guibg=' . l:bg_color . 'guifg=#148791'
+exe 'hi! SignColumn guibg=' . l:bg_color
+exe 'hi! LineNr guibg=' . l:bg_color . 'guifg=#5C6370'
+
+" GitGutter {{{
+exe 'hi! GitGutterDelete guibg=' . l:bg_color . 'guifg=#AA0000'
+exe 'hi! GitGutterChangeDelete guibg=' . l:bg_color
+exe 'hi! GitGutterAdd guibg=' . l:bg_color . 'guifg=#00ff52'
+exe 'hi! GitGutterChange guibg=' . l:bg_color . 'guifg=#ff8200'
+"}}}
+
 
 call s:h("Cursor", { "fg": s:black, "bg": s:blue }) " the character under the cursor
 call s:h("CursorIM", {}) " like Cursor, but used when in IME mode
@@ -235,15 +248,6 @@ call s:h("DiffText", { "bg": s:yellow, "fg": s:black }) " diff mode: Changed tex
 call s:h("ErrorMsg", { "fg": s:red }) " error messages on the command line
 call s:h("VertSplit", { "fg": s:vertsplit }) " the column separating vertically split windows
 call s:h("IncSearch", { "fg": s:yellow, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
-
-" call s:h("Folded", { "fg": s:comment_grey }) " line used for closed folds
-" call s:h("FoldColumn", {}) " 'foldcolumn'
-hi FoldColumn guibg=#282C34
-hi Folded guibg=#282C34 guifg=#148791
-" call s:h("SignColumn", {}) " column where signs are displayed
-hi SignColumn guibg=#282C34
-" call s:h("LineNr", { "fg": s:gutter_fg_grey }) " Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-hi LineNr guibg=#282C34 guifg=#5C6370
 
 call s:h("CursorLineNr", {}) " Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 call s:h("MatchParen", { "fg": s:blue, "gui": "underline" }) " The character under the cursor or just before it, if it is a paired bracket, and its match.
@@ -586,12 +590,6 @@ hi NERDTreeGitStatusDirDirty guifg=#c678dd
 hi NERDTreeFile guifg=white
 hi NERDTreeBookmarksHeader guifg=#c678dd
 hi NERDTreeBookmarkName guifg=#abb2bf
-"}}}
-" GitGutter {{{
-hi GitGutterDelete guibg=#282c34 guifg=#AA0000
-hi GitGutterChangeDelete guibg=#282c34
-hi GitGutterAdd guibg=#282c34 guifg=#00ff52
-hi GitGutterChange guibg=#282c34 guifg=#ff8200
 "}}}
 " easymotion/vim-easymotion {{{
 call s:h("EasyMotionTarget", { "fg": s:red, "gui": "bold", "cterm": "bold" })

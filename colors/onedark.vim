@@ -53,6 +53,8 @@ set t_Co=256
 
 let g:colors_name="onedark"
 let s:bg_color='#141619'
+let s:bg_color_lighter='#171922'
+let s:bg_color_darker='#121417'
 
 " Set to "256" for 256-color terminals, or
 " set to "16" to use your terminal emulator's native colors
@@ -218,11 +220,12 @@ call s:h("Conceal", {}) " placeholder characters substituted for concealed text 
 
 exe 'hi! StatusLine guibg=' . s:bg_color
 exe 'hi! ColorColumn guibg=' . s:bg_color 
-exe 'hi! Conceal guibg=' . s:bg_color . 'guifg=#404040' 
+exe 'hi! Conceal guibg=' . s:bg_color_darker . 'guifg=#404040' 
 exe 'hi! FoldColumn guibg=' . s:bg_color
 exe 'hi! Folded guibg=' . s:bg_color . 'guifg=#148791'
 exe 'hi! SignColumn guibg=' . s:bg_color
 exe 'hi! LineNr guibg=' . s:bg_color . 'guifg=#5C6370'
+exe 'hi! CursorLine guibg=' . s:bg_color_lighter
 
 " GitGutter {{{
 exe 'hi! GitGutterDelete guibg=' . s:bg_color . 'guifg=#AA0000'
@@ -235,12 +238,13 @@ exe 'hi! GitGutterChange guibg=' . s:bg_color . 'guifg=#ff8200'
 call s:h("Cursor", { "fg": s:black, "bg": s:blue }) " the character under the cursor
 call s:h("CursorIM", {}) " like Cursor, but used when in IME mode
 call s:h("CursorColumn", { "bg": s:cursor_grey }) " the screen column that the cursor is in when 'cursorcolumn' is set
-if &diff
-  " Don't change the background color in diff mode
-  call s:h("CursorLine", { "gui": "underline" }) " the screen line that the cursor is in when 'cursorline' is set
-else
-  call s:h("CursorLine", { "bg": s:cursor_grey }) " the screen line that the cursor is in when 'cursorline' is set
-endif
+" if &diff
+"   " Don't change the background color in diff mode
+"   call s:h("CursorLine", { "gui": "underline" }) " the screen line that the cursor is in when 'cursorline' is set
+" else
+"   call s:h("CursorLine", { "bg": s:cursor_grey }) " the screen line that the cursor is in when 'cursorline' is set
+"   exe 'hi! LineNr guibg=' . s:bg_color
+" endif
 call s:h("Directory", { "fg": s:blue }) " directory names (and other special names in listings)
 call s:h("DiffAdd", { "bg": s:green, "fg": s:black }) " diff mode: Added line
 call s:h("DiffChange", { "fg": s:yellow, "gui": "underline", "cterm": "underline" }) " diff mode: Changed line
@@ -250,7 +254,6 @@ call s:h("ErrorMsg", { "fg": s:red }) " error messages on the command line
 call s:h("VertSplit", { "fg": s:vertsplit }) " the column separating vertically split windows
 call s:h("IncSearch", { "fg": s:yellow, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
 
-call s:h("CursorLineNr", {}) " Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 call s:h("MatchParen", { "fg": s:blue, "gui": "underline" }) " The character under the cursor or just before it, if it is a paired bracket, and its match.
 call s:h("ModeMsg", {}) " 'showmode' message (e.g., "-- INSERT --")
 call s:h("MoreMsg", {}) " more-prompt

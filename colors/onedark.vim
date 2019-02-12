@@ -220,18 +220,19 @@ call s:h("Conceal", {}) " placeholder characters substituted for concealed text 
 
 exe 'hi! StatusLine guibg=' . s:bg_color
 exe 'hi! ColorColumn guibg=' . s:bg_color 
-exe 'hi! Conceal guibg=' . s:bg_color_darker . 'guifg=#404040' 
+exe 'hi! Conceal guibg=' . s:bg_color_darker . ' guifg=#404040' 
 exe 'hi! FoldColumn guibg=' . s:bg_color
-exe 'hi! Folded guibg=' . s:bg_color . 'guifg=#148791'
+exe 'hi! Folded guibg=' . s:bg_color . ' guifg=#148791'
 exe 'hi! SignColumn guibg=' . s:bg_color
-exe 'hi! LineNr guibg=' . s:bg_color . 'guifg=#5C6370'
+exe 'hi! LineNr guibg=' . s:bg_color . ' guifg=#25282e'
+exe 'hi! CursorLineNr guibg=' s:bg_color . ' guifg=#5C6370'
 exe 'hi! CursorLine guibg=' . s:bg_color_lighter
 
 " GitGutter {{{
-exe 'hi! GitGutterDelete guibg=' . s:bg_color . 'guifg=#AA0000'
+exe 'hi! GitGutterDelete guibg=' . s:bg_color . ' guifg=#AA0000'
 exe 'hi! GitGutterChangeDelete guibg=' . s:bg_color
-exe 'hi! GitGutterAdd guibg=' . s:bg_color . 'guifg=#00ff52'
-exe 'hi! GitGutterChange guibg=' . s:bg_color . 'guifg=#ff8200'
+exe 'hi! GitGutterAdd guibg=' . s:bg_color . ' guifg=#00ff52'
+exe 'hi! GitGutterChange guibg=' . s:bg_color . ' guifg=#ff8200'
 "}}}
 
 
